@@ -1,0 +1,86 @@
+### ============================================================
+### Pruebas del taller (Paso 6 de la guía)
+### ============================================================
+
+### Prueba 1 - Calcular promedio
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Calcula el promedio de las notas 4.0, 3.5 y 4.5
+
+### Prueba 2 - Otro promedio
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Tengo las notas 2.5, 2.8 y 3.2. Calcula mi promedio.
+
+### Prueba 3 - Selección de otra herramienta
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Un estudiante tiene promedio 2.8. ¿Cuál es su estado académico?
+
+### Prueba 4 - Pregunta que no requiere Tool
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Explícame qué significa promedio académico.
+
+
+### ============================================================
+### Actividad 3 - Cinco preguntas distintas con tres o más herramientas
+### (la herramienta elegida se ve en la consola: ">>> TOOL ...")
+### ============================================================
+
+### A3-1 - Debe elegir calcularNotaFinal
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Mis notas son 4.0, 3.0 y 5.0 con porcentajes del 30%, 30% y 40%. ¿Cuál es mi nota definitiva?
+
+### A3-2 - Debe elegir estadoAsistencia
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Un estudiante asistió al 75% de las clases. ¿En qué estado queda por su asistencia?
+
+### A3-3 - Se esperaba calcularPromedio (en la ejecución real el modelo NO usó la herramienta)
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Necesito el promedio simple de 3.2, 4.1 y 2.9.
+
+### A3-3b - Misma consulta con redacción explícita: ahora sí se espera calcularPromedio
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Calcula el promedio de las notas 3.2, 4.1 y 2.9.
+
+### A3-4 - Debe elegir estadoAcademico
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Si mi promedio es 3.4, ¿estoy aprobado o reprobado?
+
+### A3-5 - Debe encadenar dos herramientas (calcularPromedio y luego estadoAcademico)
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Mis notas son 2.0, 3.0 y 2.5. Calcula mi promedio y dime si aprobé.
+
+
+### ============================================================
+### Actividad 4 - Dos preguntas que se responden sin Tool
+### ============================================================
+
+### A4-1 - Pregunta conceptual
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+¿Qué diferencia hay entre una nota definitiva y una nota parcial?
+
+### A4-2 - Consejo general
+POST http://localhost:8080/api/chat
+Content-Type: text/plain
+
+Dame tres consejos breves para organizar mi tiempo de estudio.

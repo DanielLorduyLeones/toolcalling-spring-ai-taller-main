@@ -1,0 +1,7 @@
+{
+  "name": "generador-informe-toolcalling",
+  "private": true,
+  "description": "Genera docs/Informe-Taller-ToolCalling.docx a partir del código y las evidencias del repo",
+  "scripts": { "generar": "node generar-informe.js" },
+  "dependencies": { "docx": "^9.0.0" }
+}

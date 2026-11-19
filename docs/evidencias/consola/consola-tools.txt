@@ -1,0 +1,23 @@
+Registro de la consola de depuración de VS Code durante la ejecución real del taller
+(transcrito de la captura docs/evidencias/capturas/20-consola-completa.png; 2026-11-18, modelo openai/gpt-oss-120b en Groq).
+
+Peticiones en el orden en que se enviaron desde pruebas.http y lo que imprimió la aplicación:
+
+Petición   Consola
+---------  -------------------------------------------------------------------------------------------
+Prueba 1   >>> TOOL calcularPromedio ejecutada con: 4.0, 3.5, 4.5
+Prueba 2   >>> TOOL calcularPromedio ejecutada con: 2.5, 2.8, 3.2
+Prueba 3   >>> TOOL estadoAcademico ejecutada con promedio: 2.8
+Prueba 4   (sin línea: el modelo respondió directamente)
+A3-1       >>> TOOL calcularNotaFinal ejecutada con notas: 4.0, 3.0, 5.0 y porcentajes: 30.0, 30.0, 40.0
+A3-2       >>> TOOL estadoAsistencia ejecutada con asistencia: 75.0%
+A3-3       (sin línea: el modelo hizo la cuenta por sí mismo y NO usó la herramienta)
+A3-4       >>> TOOL estadoAcademico ejecutada con promedio: 3.4
+A3-5       >>> TOOL calcularPromedio ejecutada con: 2.0, 3.0, 2.5
+A3-5       >>> TOOL estadoAcademico ejecutada con promedio: 2.5
+A4-1       (sin línea: pregunta conceptual)
+A4-2       (sin línea: consejos generales)
+A3-3b      >>> TOOL calcularPromedio ejecutada con: 3.2, 4.1, 2.9
+
+Total: 12 peticiones. 9 ejecuciones de herramientas repartidas en 8 peticiones (A3-5 encadenó dos);
+4 peticiones no ejecutaron ninguna herramienta (Prueba 4, A3-3, A4-1 y A4-2).
